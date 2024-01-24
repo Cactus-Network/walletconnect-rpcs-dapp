@@ -99,33 +99,33 @@ export function useRpcUi() {
 
     const commands = {
         // Wallet
-        chia_logIn: [
+        cactus_logIn: [
             numberOption('Fingerprint', fingerprint, setFingerprint),
             submitButton('Log In', () => rpc.logIn({ fingerprint })),
         ],
-        chia_getWallets: [
+        cactus_getWallets: [
             booleanOption('Include Data', includeData, setIncludeData),
             submitButton('Get Wallets', () => rpc.getWallets({ includeData })),
         ],
-        chia_getTransaction: [
+        cactus_getTransaction: [
             stringOption('Transaction Id', transactionId, setTransactionId),
             submitButton('Get Transaction', () =>
                 rpc.getTransaction({ transactionId })
             ),
         ],
-        chia_getWalletBalance: [
+        cactus_getWalletBalance: [
             numberOption('Wallet Id', walletId, setWalletId),
             submitButton('Get Wallet Balance', () =>
                 rpc.getWalletBalance({ walletId })
             ),
         ],
-        chia_getCurrentAddress: [
+        cactus_getCurrentAddress: [
             numberOption('Wallet Id', walletId, setWalletId),
             submitButton('Get Current Address', () =>
                 rpc.getCurrentAddress({ walletId })
             ),
         ],
-        chia_sendTransaction: [
+        cactus_sendTransaction: [
             numberOption('Wallet Id', walletId, setWalletId),
             numberOption('Amount', amount, setAmount),
             numberOption('Fee', fee, setFee),
@@ -149,21 +149,21 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_signMessageById: [
+        cactus_signMessageById: [
             stringOption('Message', message, setMessage),
             stringOption('DID', did, setDid),
             submitButton('Sign Message By Id', () =>
                 rpc.signMessageById({ message, id: did })
             ),
         ],
-        chia_signMessageByAddress: [
+        cactus_signMessageByAddress: [
             stringOption('Message', message, setMessage),
             stringOption('Address', address, setAddress),
             submitButton('Sign Message By Address', () =>
                 rpc.signMessageByAddress({ message, address: address })
             ),
         ],
-        chia_verifySignature: [
+        cactus_verifySignature: [
             stringOption('Message', message, setMessage),
             stringOption('Public Key', publicKey, setPublicKey),
             stringOption('Signature', signature, setSignature),
@@ -179,7 +179,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_getNextAddress: [
+        cactus_getNextAddress: [
             numberOption('Wallet Id', walletId, setWalletId),
             booleanOption('New Address', newAddress, setNewAddress),
             submitButton('Get Next Address', () =>
@@ -189,10 +189,10 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_getSyncStatus: [
+        cactus_getSyncStatus: [
             submitButton('Get Sync Status', () => rpc.getSyncStatus({})),
         ],
-        chia_getWalletAddresses: [
+        cactus_getWalletAddresses: [
             stringOption('Fingerprints', fingerprints, setFingerprints),
             numberOption('Index', index, setIndex),
             numberOption('Count', count, setCount),
@@ -208,7 +208,7 @@ export function useRpcUi() {
         ],
 
         // Offers
-        chia_getAllOffers: [
+        cactus_getAllOffers: [
             numberOption('Start Index', startIndex, setStartIndex),
             numberOption('End Index', endIndex, setEndIndex),
             stringOption('Sort Key', sortKey, setSortKey),
@@ -234,10 +234,10 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_getOffersCount: [
+        cactus_getOffersCount: [
             submitButton('Get Offers Count', () => rpc.getOffersCount({})),
         ],
-        chia_createOfferForIds: [
+        cactus_createOfferForIds: [
             stringOption('Offer', offer, setOffer),
             stringOption('Driver Dict', driverDict, setDriverDict),
             booleanOption(
@@ -255,7 +255,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_cancelOffer: [
+        cactus_cancelOffer: [
             numberOption('Fee', fee, setFee),
             stringOption('Trade Id', tradeId, setTradeId),
             booleanOption('Secure', secure, setSecure),
@@ -267,30 +267,30 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_checkOfferValidity: [
+        cactus_checkOfferValidity: [
             stringOption('Offer Data', offerData, setOfferData),
             submitButton('Check Offer Validity', () =>
                 rpc.checkOfferValidity({ offerData })
             ),
         ],
-        chia_takeOffer: [
+        cactus_takeOffer: [
             numberOption('Fee', fee, setFee),
             stringOption('Offer Data', offerData, setOfferData),
             submitButton('Take Offer', () =>
                 rpc.takeOffer({ fee, offer: offerData })
             ),
         ],
-        chia_getOfferSummary: [
+        cactus_getOfferSummary: [
             stringOption('Offer Data', offerData, setOfferData),
             submitButton('Get Offer Summary', () =>
                 rpc.getOfferSummary({ offerData })
             ),
         ],
-        chia_getOfferData: [
+        cactus_getOfferData: [
             stringOption('Offer Id', offerId, setOfferId),
             submitButton('Get Offer Data', () => rpc.getOfferData({ offerId })),
         ],
-        chia_getOfferRecord: [
+        cactus_getOfferRecord: [
             stringOption('Offer Id', offerId, setOfferId),
             submitButton('Get Offer Record', () =>
                 rpc.getOfferRecord({ offerId })
@@ -298,26 +298,26 @@ export function useRpcUi() {
         ],
 
         // CATs
-        chia_createNewCATWallet: [
+        cactus_createNewCATWallet: [
             numberOption('Amount', amount, setAmount),
             numberOption('Fee', fee, setFee),
             submitButton('Create New CAT Wallet', () =>
                 rpc.createNewCatWallet({ amount, fee })
             ),
         ],
-        chia_getCATWalletInfo: [
+        cactus_getCATWalletInfo: [
             stringOption('Asset Id', assetId, setAssetId),
             submitButton('Get CAT Wallet Info', () =>
                 rpc.getCatWalletInfo({ assetId })
             ),
         ],
-        chia_getCATAssetId: [
+        cactus_getCATAssetId: [
             numberOption('Wallet Id', walletId, setWalletId),
             submitButton('Get CAT Asset Id', () =>
                 rpc.getCatAssetId({ walletId })
             ),
         ],
-        chia_spendCAT: [
+        cactus_spendCAT: [
             numberOption('Wallet Id', walletId, setWalletId),
             stringOption('Address', address, setAddress),
             numberOption('Amount', amount, setAmount),
@@ -340,7 +340,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_addCATToken: [
+        cactus_addCATToken: [
             stringOption('Name', name, setName),
             stringOption('Asset Id', assetId, setAssetId),
             submitButton('Add CAT Token', () =>
@@ -349,7 +349,7 @@ export function useRpcUi() {
         ],
 
         // NFTs
-        chia_getNFTs: [
+        cactus_getNFTs: [
             numberOption('Wallet Id', walletId, setWalletId),
             numberOption('Number', number, setNumber),
             numberOption('Start Index', startIndex, setStartIndex),
@@ -357,11 +357,11 @@ export function useRpcUi() {
                 rpc.getNfts({ walletIds: [walletId], num: number, startIndex })
             ),
         ],
-        chia_getNFTInfo: [
+        cactus_getNFTInfo: [
             stringOption('Coin Id', coinId, setCoinId),
             submitButton('Get NFT Info', () => rpc.getNftInfo({ coinId })),
         ],
-        chia_mintNFT: [
+        cactus_mintNFT: [
             numberOption('Wallet Id', walletId, setWalletId),
             stringOption('Royalty Address', royaltyAddress, setRoyaltyAddress),
             numberOption(
@@ -405,7 +405,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_transferNFT: [
+        cactus_transferNFT: [
             numberOption('Wallet Id', walletId, setWalletId),
             stringOption('NFT Coin Ids', nftCoinIds, setNftCoinIds),
             stringOption('Address', address, setAddress),
@@ -421,7 +421,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_getNFTsCount: [
+        cactus_getNFTsCount: [
             stringOption('Wallet Ids', walletIds, setWalletIds),
             submitButton('Get NFTs Count', () =>
                 rpc.getNftsCount({
@@ -433,7 +433,7 @@ export function useRpcUi() {
         ],
 
         // DIDs
-        chia_createNewDIDWallet: [
+        cactus_createNewDIDWallet: [
             numberOption('Amount', amount, setAmount),
             numberOption('Fee', fee, setFee),
             numberOption(
@@ -453,14 +453,14 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_setDIDName: [
+        cactus_setDIDName: [
             numberOption('Wallet Id', walletId, setWalletId),
             stringOption('Name', name, setName),
             submitButton('Set DID Name', () =>
                 rpc.setDidName({ name, walletId })
             ),
         ],
-        chia_setNFTDID: [
+        cactus_setNFTDID: [
             numberOption('Wallet Id', walletId, setWalletId),
             stringOption('NFT Coin Ids', nftCoinIds, setNftCoinIds),
             stringOption('Launcher Id', launcherId, setLauncherId),
@@ -478,7 +478,7 @@ export function useRpcUi() {
                 })
             ),
         ],
-        chia_getNFTWalletsWithDIDs: [
+        cactus_getNFTWalletsWithDIDs: [
             submitButton('Get NFT Wallets With DIDs', () =>
                 rpc.getNftWalletsWithDids({})
             ),

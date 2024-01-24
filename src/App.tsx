@@ -46,9 +46,9 @@ export default function Home() {
 
                     <Typography variant='body1' mt={2}>
                         Before you can test out the WalletConnect commands, you
-                        will need to link the Chia wallet to this site. You can
+                        will need to link the Cactus wallet to this site. You can
                         download the latest version of the wallet on the{' '}
-                        <Link href='https://www.chia.net/downloads'>
+                        <Link href='https://www.cactus-network.net/'>
                             official download page
                         </Link>
                         .

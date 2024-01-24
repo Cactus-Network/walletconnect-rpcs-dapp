@@ -1,6 +1,6 @@
 # WalletConnect RPCs dApp
 
-This is a dApp for testing the Chia wallet's WalletConnect commands.
+This is a dApp for testing the Cactus wallet's WalletConnect commands.
 
 ## Setup
 

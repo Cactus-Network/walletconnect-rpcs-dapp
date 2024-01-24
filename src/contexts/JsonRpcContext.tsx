@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useContext } from 'react';
-import { ChiaMethod } from '../constants/wallet-connect';
+import { CactusMethod } from '../constants/wallet-connect';
 import {
     AddCatTokenRequest,
     AddCatTokenResponse,
@@ -207,7 +207,7 @@ export const JsonRpcContext = createContext<JsonRpc>({} as JsonRpc);
 export function JsonRpcProvider({ children }: PropsWithChildren) {
     const { client, session, chainId, fingerprint } = useWalletConnect();
 
-    async function request<T>(method: ChiaMethod, data: any): Promise<T> {
+    async function request<T>(method: CactusMethod, data: any): Promise<T> {
         if (!client) throw new Error('WalletConnect is not initialized');
         if (!session) throw new Error('Session is not connected');
         if (!fingerprint) throw new Error('Fingerprint is not loaded.');
@@ -228,79 +228,79 @@ export function JsonRpcProvider({ children }: PropsWithChildren) {
 
     // Wallet
     async function logIn(data: LogInRequest) {
-        return await request<LogInResponse>(ChiaMethod.LogIn, data);
+        return await request<LogInResponse>(CactusMethod.LogIn, data);
     }
 
     async function getWallets(data: GetWalletsRequest) {
-        return await request<GetWalletsResponse>(ChiaMethod.GetWallets, data);
+        return await request<GetWalletsResponse>(CactusMethod.GetWallets, data);
     }
 
     async function getTransaction(data: GetTransactionRequest) {
         return await request<GetTransactionResponse>(
-            ChiaMethod.GetTransaction,
+            CactusMethod.GetTransaction,
             data
         );
     }
 
     async function getWalletBalance(data: GetWalletBalanceRequest) {
         return await request<GetWalletBalanceResponse>(
-            ChiaMethod.GetWalletBalance,
+            CactusMethod.GetWalletBalance,
             data
         );
     }
 
     async function getCurrentAddress(data: GetCurrentAddressRequest) {
         return await request<GetCurrentAddressResponse>(
-            ChiaMethod.GetCurrentAddress,
+            CactusMethod.GetCurrentAddress,
             data
         );
     }
 
     async function sendTransaction(data: SendTransactionRequest) {
         return await request<SendTransactionResponse>(
-            ChiaMethod.SendTransaction,
+            CactusMethod.SendTransaction,
             data
         );
     }
 
     async function signMessageById(data: SignMessageByIdRequest) {
         return await request<SignMessageByIdResponse>(
-            ChiaMethod.SignMessageById,
+            CactusMethod.SignMessageById,
             data
         );
     }
 
     async function signMessageByAddress(data: SignMessageByAddressRequest) {
         return await request<SignMessageByAddressResponse>(
-            ChiaMethod.SignMessageByAddress,
+            CactusMethod.SignMessageByAddress,
             data
         );
     }
 
     async function verifySignature(data: VerifySignatureRequest) {
         return await request<VerifySignatureResponse>(
-            ChiaMethod.VerifySignature,
+            CactusMethod.VerifySignature,
             data
         );
     }
 
     async function getNextAddress(data: GetNextAddressRequest) {
         return await request<GetNextAddressResponse>(
-            ChiaMethod.GetNextAddress,
+            CactusMethod.GetNextAddress,
             data
         );
     }
 
     async function getSyncStatus(data: GetSyncStatusRequest) {
         return await request<GetSyncStatusResponse>(
-            ChiaMethod.GetSyncStatus,
+            CactusMethod.GetSyncStatus,
             data
         );
     }
 
     async function getWalletAddresses(data: GetWalletAddressesRequest) {
         return await request<GetWalletAddressesResponse>(
-            ChiaMethod.GetWalletAddresses,
+            CactusMethod.GetWalletAddresses,
             data
         );
     }
@@ -309,57 +309,57 @@ export function JsonRpcProvider({ children }: PropsWithChildren) {
 
     async function getAllOffers(data: GetAllOffersRequest) {
         return await request<GetAllOffersResponse>(
-            ChiaMethod.GetAllOffers,
+            CactusMethod.GetAllOffers,
             data
         );
     }
 
     async function getOffersCount(data: GetOffersCountRequest) {
         return await request<GetOffersCountResponse>(
-            ChiaMethod.GetOffersCount,
+            CactusMethod.GetOffersCount,
             data
         );
     }
 
     async function createOfferForIds(data: CreateOfferForIdsRequest) {
         return await request<CreateOfferForIdsResponse>(
-            ChiaMethod.CreateOfferForIds,
+            CactusMethod.CreateOfferForIds,
             data
         );
     }
 
     async function cancelOffer(data: CancelOfferRequest) {
-        return await request<CancelOfferResponse>(ChiaMethod.CancelOffer, data);
+        return await request<CancelOfferResponse>(CactusMethod.CancelOffer, data);
     }
 
     async function checkOfferValidity(data: CheckOfferValidityRequest) {
         return await request<CheckOfferValidityResponse>(
-            ChiaMethod.CheckOfferValidity,
+            CactusMethod.CheckOfferValidity,
             data
         );
     }
 
     async function takeOffer(data: TakeOfferRequest) {
-        return await request<TakeOfferResponse>(ChiaMethod.TakeOffer, data);
+        return await request<TakeOfferResponse>(CactusMethod.TakeOffer, data);
     }
 
     async function getOfferSummary(data: GetOfferSummaryRequest) {
         return await request<GetOfferSummaryResponse>(
-            ChiaMethod.GetOfferSummary,
+            CactusMethod.GetOfferSummary,
             data
         );
     }
 
     async function getOfferData(data: GetOfferDataRequest) {
         return await request<GetOfferDataResponse>(
-            ChiaMethod.GetOfferData,
+            CactusMethod.GetOfferData,
             data
         );
     }
 
     async function getOfferRecord(data: GetOfferRecordRequest) {
         return await request<GetOfferRecordResponse>(
-            ChiaMethod.GetOfferRecord,
+            CactusMethod.GetOfferRecord,
             data
         );
     }
@@ -368,53 +368,53 @@ export function JsonRpcProvider({ children }: PropsWithChildren) {
 
     async function createNewCatWallet(data: CreateNewCatWalletRequest) {
         return await request<CreateNewCatWalletResponse>(
-            ChiaMethod.CreateNewCatWallet,
+            CactusMethod.CreateNewCatWallet,
             data
         );
     }
 
     async function getCatWalletInfo(data: GetCatWalletInfoRequest) {
         return await request<GetCatWalletInfoResponse>(
-            ChiaMethod.GetCatWalletInfo,
+            CactusMethod.GetCatWalletInfo,
             data
         );
     }
 
     async function getCatAssetId(data: GetCatAssetIdRequest) {
         return await request<GetCatAssetIdResponse>(
-            ChiaMethod.GetCatAssetId,
+            CactusMethod.GetCatAssetId,
             data
         );
     }
 
     async function spendCat(data: SpendCatRequest) {
-        return await request<SpendCatResponse>(ChiaMethod.SpendCat, data);
+        return await request<SpendCatResponse>(CactusMethod.SpendCat, data);
     }
 
     async function addCatToken(data: AddCatTokenRequest) {
-        return await request<AddCatTokenResponse>(ChiaMethod.AddCatToken, data);
+        return await request<AddCatTokenResponse>(CactusMethod.AddCatToken, data);
     }
 
     // NFTs
     async function getNfts(data: GetNftsRequest) {
-        return await request<GetNftsResponse>(ChiaMethod.GetNfts, data);
+        return await request<GetNftsResponse>(CactusMethod.GetNfts, data);
     }
 
     async function getNftInfo(data: GetNftInfoRequest) {
-        return await request<GetNftInfoResponse>(ChiaMethod.GetNftInfo, data);
+        return await request<GetNftInfoResponse>(CactusMethod.GetNftInfo, data);
     }
 
     async function mintNft(data: MintNftRequest) {
-        return await request<MintNftResponse>(ChiaMethod.MintNft, data);
+        return await request<MintNftResponse>(CactusMethod.MintNft, data);
     }
 
     async function transferNft(data: TransferNftRequest) {
-        return await request<TransferNftResponse>(ChiaMethod.TransferNft, data);
+        return await request<TransferNftResponse>(CactusMethod.TransferNft, data);
     }
 
     async function getNftsCount(data: GetNftsCountRequest) {
         return await request<GetNftsCountResponse>(
-            ChiaMethod.GetNftsCount,
+            CactusMethod.GetNftsCount,
             data
         );
     }
@@ -423,22 +423,22 @@ export function JsonRpcProvider({ children }: PropsWithChildren) {
 
     async function createNewDidWallet(data: CreateNewDidWalletRequest) {
         return await request<CreateNewDidWalletResponse>(
-            ChiaMethod.CreateNewDidWallet,
+            CactusMethod.CreateNewDidWallet,
             data
         );
     }
 
     async function setDidName(data: SetDidNameRequest) {
-        return await request<SetDidNameResponse>(ChiaMethod.SetDidName, data);
+        return await request<SetDidNameResponse>(CactusMethod.SetDidName, data);
     }
 
     async function setNftDid(data: SetNftDidRequest) {
-        return await request<SetNftDidResponse>(ChiaMethod.SetNftDid, data);
+        return await request<SetNftDidResponse>(CactusMethod.SetNftDid, data);
     }
 
     async function getNftWalletsWithDids(data: GetNftWalletsWithDidsRequest) {
         return await request<GetNftWalletsWithDidsResponse>(
-            ChiaMethod.GetNftWalletsWithDids,
+            CactusMethod.GetNftWalletsWithDids,
             data
         );
     }
