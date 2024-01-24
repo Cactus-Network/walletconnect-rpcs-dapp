@@ -126,9 +126,9 @@ export function useRpcUi() {
             ),
         ],
         cactus_sendTransaction: [
-            numberOption('Wallet Id', walletId, setWalletId),
-            numberOption('Amount', amount, setAmount),
-            numberOption('Fee', fee, setFee),
+            numberOption('Wallet Id (Run Command "Cactus_getWallets" to find correct Id)', walletId, setWalletId),
+            numberOption('Amount in mojos', amount, setAmount),
+            numberOption('Fee in mojos', fee, setFee),
             stringOption('Address', address, setAddress),
             stringOption('Memos', memos, setMemos),
             booleanOption(
